@@ -1,0 +1,599 @@
+/* Header styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--secondary-bg);
+  border-bottom: 1px solid var(--tertiary-bg);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.header-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-text);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--accent-green);
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--secondary-text);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-green);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--primary-text);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--secondary-text);
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.menu-toggle {
+  background: transparent;
+  border: none;
+  color: var(--secondary-text);
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: none;
+}
+
+/* Hero section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: calc(var(--header-height) + 2rem);
+  background-color: var(--primary-bg);
+  position: relative;
+  min-height: 100vh;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  z-index: 1;
+  padding: 0 1.5rem;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  background: linear-gradient(to bottom, var(--primary-bg), transparent),
+              url('/hero-bg.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--secondary-text);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--tertiary-bg);
+  color: var(--primary-text);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background-color: var(--accent-blue);
+  transform: translateY(-3px);
+}
+
+/* Projects section */
+.projects {
+  background-color: var(--primary-bg);
+  padding-top: calc(var(--header-height) + 3rem);
+}
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+/* Film card specific styling */
+.film-card {
+  width: var(--film-card-width);
+  position: relative;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.film-card:hover {
+  transform: scale(1.05);
+}
+
+.film-card img {
+  width: 100%;
+  height: var(--film-card-height);
+  object-fit: cover;
+  display: block;
+}
+
+.film-card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  color: white;
+}
+
+.film-card-info h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.film-card-category {
+  font-size: 0.8rem;
+  color: var(--accent-green);
+  margin-bottom: 0.5rem;
+}
+
+.film-card-links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.film-card-links a {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.film-card-links a:hover {
+  color: var(--accent-green);
+}
+
+.rating {
+  display: flex;
+  margin: 0.5rem 0;
+}
+
+.star {
+  color: var(--accent-green);
+  margin-right: 0.2rem;
+}
+
+.film-card-details {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1.25rem;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  overflow: auto;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.film-card-details p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  font-weight: 500;
+  text-align: center;
+}
+
+.film-card:hover .film-card-details {
+  display: flex;
+  opacity: 1;
+}
+
+.film-card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.tech-tag {
+  background-color: var(--tertiary-bg);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 30px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* Experience, Education, Certifications sections */
+.experience, .education, .certifications {
+  padding-top: calc(var(--header-height) + 3rem);
+  background-color: var(--secondary-bg);
+}
+
+.education {
+  background-color: var(--primary-bg);
+}
+
+.certifications {
+  background-color: var(--secondary-bg);
+}
+
+/* Timeline styling */
+.timeline {
+  margin-top: 2rem;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 2rem 2rem;
+  border-left: 2px solid var(--tertiary-bg);
+}
+
+.timeline-item:last-child {
+  border-left: 2px solid transparent;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--accent-green);
+  left: -9px;
+  top: 0;
+}
+
+.timeline-date {
+  font-size: 0.9rem;
+  color: var(--muted-text);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-subtitle {
+  color: var(--secondary-text);
+  margin-bottom: 0.75rem;
+}
+
+.timeline-content {
+  color: var(--muted-text);
+  font-size: 0.95rem;
+}
+
+.education-highlights {
+  margin-top: 1rem;
+  padding-left: 1rem;
+}
+
+.education-highlights li {
+  margin-bottom: 0.5rem;
+  color: var(--secondary-text);
+}
+
+/* Certification cards */
+.certs-container, .achievements-container {
+  margin-top: 2rem;
+}
+
+.cert-card {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: var(--tertiary-bg);
+  border-radius: var(--card-radius);
+  margin-bottom: 1.5rem;
+}
+
+.cert-icon {
+  font-size: 2rem;
+  color: var(--accent-orange);
+  margin-right: 1.5rem;
+}
+
+.cert-content h4 {
+  margin-bottom: 0.5rem;
+}
+
+.cert-org {
+  color: var(--secondary-text);
+  margin-bottom: 0.25rem;
+}
+
+.cert-year {
+  color: var(--muted-text);
+  font-size: 0.9rem;
+}
+
+/* Footer styling */
+.footer {
+  background-color: var(--tertiary-bg);
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.footer .social-links {
+  margin-bottom: 1.5rem;
+}
+
+.contact-info {
+  margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+  color: var(--secondary-text);
+  margin-bottom: 0.5rem;
+}
+
+.copyright p {
+  color: var(--muted-text);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .header {
+    height: auto;
+    padding: 1rem 0;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background-color: var(--secondary-bg);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--tertiary-bg);
+    align-items: center;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .film-card {
+    width: 100%;
+    max-width: var(--film-card-width);
+  }
+
+  .cert-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cert-icon {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Add these new styles */
+
+/* Floating Elements for Hero Section */
+.hero-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.floating-element {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(10px);
+  opacity: 0.2;
+}
+
+.elem-1 {
+  width: 100px;
+  height: 100px;
+  top: 15%;
+  left: 10%;
+  background: var(--primary-color);
+}
+
+.elem-2 {
+  width: 150px;
+  height: 150px;
+  bottom: 20%;
+  right: 15%;
+  background: var(--secondary-color);
+}
+
+.elem-3 {
+  width: 80px;
+  height: 80px;
+  top: 60%;
+  left: 20%;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+/* Fix container for hero section */
+.hero .hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 8rem 1rem;
+  transition: transform 0.3s ease;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Additional 3D and gradient effects */
+.section-heading {
+  position: relative;
+  display: inline-block;
+  font-size: 2.5rem;
+  margin-bottom: 2.5rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-heading:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 80px;
+  height: 4px;
+  background: var(--accent-gradient);
+  border-radius: 2px;
+  transform: translateX(-50%);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .modal-content {
+    grid-template-columns: 1fr;
+  }
+
+  .floating-element {
+    opacity: 0.15;
+  }
+}
+
+/* Container fix */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Dark mode colors */
+.dark-mode {
+  --dark-bg: #121212;
+  --dark-text: #f8f8f8;
+  --card-bg-dark: #1e1e1e;
+}
+
+.light-mode {
+  --light-bg: #f8f8f8;
+  --light-text: #121212;
+  --card-bg-light: #ffffff;
+}

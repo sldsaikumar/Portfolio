@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SLD - Portfolio</title>
+    <style>
+      /* Hide Same maker button */
+      .same-maker,
+      a[href*="same.app"],
+      [class*="same-maker"],
+      [id*="same-maker"],
+      div[class*="same"],
+      [data-made-with-same] {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        height: 0 !important;
+        width: 0 !important;
+        position: absolute !important;
+        bottom: -9999px !important;
+        right: -9999px !important;
+        z-index: -9999 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // Remove any Same maker button that might be added during runtime
+      function removeSameMakerButton() {
+        const sameElements = document.querySelectorAll('.same-maker, a[href*="same.app"], [class*="same-maker"], [id*="same-maker"], div[class*="same"], [data-made-with-same]');
+        sameElements.forEach(el => {
+          el.remove();
+        });
+      }
+
+      // Run on load
+      window.addEventListener('load', removeSameMakerButton);
+
+      // Also run on a timer in case the button is added later
+      setInterval(removeSameMakerButton, 500);
+
+      // Add MutationObserver to watch for the button being added
+      const observer = new MutationObserver((mutations) => {
+        removeSameMakerButton();
+      });
+
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    </script>
+  </body>
+</html>

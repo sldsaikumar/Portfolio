@@ -1,0 +1,101 @@
+/* Import Roboto font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 240 10% 16%;
+
+    /* StudioBinder primary colors */
+    --sb-pink: 340 60% 60%;
+    --sb-teal: 170 75% 44%;
+    --sb-blue: 222 68% 45%;
+    --sb-purple: 233 42% 42%;
+    --sb-orange: 30 92% 51%;
+
+    /* StudioBinder UI colors */
+    --sb-dark: 240 10% 16%;
+    --sb-light: 0 0% 98%;
+    --sb-gray: 220 5% 60%;
+    --sb-light-gray: 220 5% 80%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 16%;
+
+    --primary: 340 60% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 170 75% 44%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 222 22% 50%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 340 60% 60%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 340 60% 60%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 16%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 16%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 16%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 340 60% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 170 75% 44%;
+    --secondary-foreground: 240 10% 16%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 340 60% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+
+  /* StudioBinder custom styles */
+  .sb-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
